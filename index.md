@@ -10,3 +10,6 @@ Además se incluirá otro servicio de telegram que notifique cuando se asignen l
 Se utilizará una arquitectura basada en microservicios. Uno de los microservicios (el gestor de las tareas) estará desarrollado en perl y el microservicio para el bot de telegram estará desarrollado en nodejs.
 Además, las tareas que han sido asignadas por el servicio se guardarán en la BD.
 ![alt text](images/arquitectura.jpg "Arquitectura")
+
+## Licencia
+Proyecto bajo la licencia de Apache License

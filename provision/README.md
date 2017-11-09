@@ -35,3 +35,4 @@ Los archivos update-* son los encargados de descargar las últimas versiones de 
 ### startServers
 Si hubiera algún problema con los servidores, se reinicien o se paren los servicios este archivo parará todos los contenedores y los volverá a ejecutar. Además levanta el servicio de no-ip de nuevo.
 ![start](Imagenes/21.png)
+*NOTA:* Para utilizar los archivos de configuración hay que configurar el login de docker con AWS y tener permisos para acceder a los contenedores alojados.

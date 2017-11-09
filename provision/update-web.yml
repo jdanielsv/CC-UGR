@@ -1,0 +1,26 @@
+---
+- hosts: TFG
+  sudo: yes
+  tasks:
+     - name: stop container
+       docker_container:
+        name: server-web-dev
+        state: stopped
+
+     - name: remove container
+       docker_container:
+        name: server-web-dev
+        state: absent
+
+     - name: Remove image
+       docker_image:
+        state: absent
+        name: 207646075765.dkr.ecr.us-east-2.amazonaws.com/organizat
+        tag: latest
+
+     - name: Connect to ASW Container
+       command: |
+        docker login -u AWS -p
+
+     - name: Download latest Docker images organizat-web
+       command: docker run --name server-web-dev -p 80:80 -d 207646075765.dkr.ecr.us-east-2.amazonaws.com/organizat

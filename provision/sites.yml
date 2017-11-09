@@ -30,7 +30,7 @@
       command: |
         docker login -u AWS -p
 
-      # Descargamos los contenedores que tenemos alojados en ASW Container
+      # Descargamos e iniciamos los contenedores que tenemos alojados en ASW Container
     - name: Download latest Docker images mongo
       command: docker run --name mongo -d 207646075765.dkr.ecr.us-east-2.amazonaws.com/organizat-mongo
 

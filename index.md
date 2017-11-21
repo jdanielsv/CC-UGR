@@ -9,14 +9,13 @@ Además se incluirá otro servicio de telegram que notifique cuando se asignen l
 ## Arquitectura
 Se utilizará una arquitectura basada en microservicios. Uno de los microservicios (el gestor de las tareas) estará desarrollado en python y el microservicio para el bot de telegram estará desarrollado en nodejs.
 Además, las tareas que han sido asignadas por el servicio se guardarán en la BD basada en X.
+![alt text](images/arquitectura.jpg "Arquitectura")
 # Provisionamiento
 El Provisionamiento se ha realizado gracias a las máquinas virtuales de AWS.
 Se han utilizado la versión 16.04 t2.micro de Ubuntu. Además, para la instalación de los recursos que se necesitarán en el proyecto se utilizará Ansbile.
 
 ## Ansible
 Se ha elegido Ansible por su sencillez de uso: se basa en una arquitectura cliente/servidor en la que, mediante playbooks ( o tareas ) se va provisionando el sistema. Para acceder a la información completa entrar [aquí](https://github.com/jdanielsv/CC-UGR/tree/master/provision)
-
-![alt text](images/arquitectura.jpg "Arquitectura")
 
 ## Licencia
 Proyecto bajo la licencia de Apache License

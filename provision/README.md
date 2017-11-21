@@ -23,16 +23,6 @@ IPDELSERVIDOR ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3
 Se le especifica además para cada máquina con que usuario queremos que se conecte ansible y, si no está por defecto, el interprete de python que queremos usar.
 
 ## Resumen de los archivos de configuración.
-**NOTA:** Para utilizar los archivos de configuración hay que configurar el login de docker con AWS y tener permisos para acceder a los contenedores alojados.
-Tenemos 5 archivos principales:
-### sites
-El archivo sites tiene la configuración inicial para cada servidor: Instalación de pip para python, instalación de un plugin para pip (docker-py que nos servirá mas adelante), instalación de docker, descarga y ejecución de los distintos contenedores docker e instalación de no-ip para poder tener una dirección estática ya que cada vez que se apaga la máquina cambia la ip.
-![primeraConfiguracion](Imagenes/8.png)
-### update-*
-Los archivos update-* son los encargados de descargar las últimas versiones de los contenedores y ejecutarlos. Previamente para las ejecuciones y elimina la imagen para no ir acumulándolas y gastar espacio. Se han hecho archivos separados ya que no siempre queremos actualizar todos los servicios.
-![actualizacion1](Imagenes/18.png)
-![actualizacion2](Imagenes/19.png)
-![actualizacion3](Imagenes/20.png)
-### startServers
-Si hubiera algún problema con los servidores, se reinicien o se paren los servicios este archivo parará todos los contenedores y los volverá a ejecutar. Además levanta el servicio de no-ip de nuevo.
-![start](Imagenes/21.png)
+
+Este archivo tiene la instalación de aquellas partes que se tendrán en nuestra máquina: Mongo, Node.JS, Apache2, Python2.7 y NPM
+![primeraConfiguracion](Imagenes/1.png)

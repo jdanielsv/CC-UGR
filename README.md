@@ -14,8 +14,7 @@ Estas tareas están organizadas por tipos de tareas los cuales solamente ciertos
 Además se incluirá otro servicio de telegram que notifique cuando se asignen las tareas e información de las tareas asignadas a cada usuario.
 ### Arquitectura
 Se utilizará una arquitectura basada en microservicios. Uno de los microservicios (el gestor de las tareas) estará desarrollado en python y el microservicio para el bot de telegram estará desarrollado en nodejs.
-Además, las tareas que han sido asignadas por el servicio se guardarán en la BD basada en X.
-![alt text](images/arquitectura.jpg "Arquitectura")
+Además, las tareas que han sido asignadas por el servicio se guardarán en la BD basada en MongoDB.
 ## Provisionamiento
 El Provisionamiento se ha realizado gracias a las máquinas virtuales de AWS.
 Se han utilizado la versión 16.04 t2.micro de Ubuntu. Además, para la instalación de los recursos que se necesitarán en el proyecto se utilizará Ansbile.

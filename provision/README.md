@@ -24,5 +24,5 @@ Se le especifica además para cada máquina con que usuario queremos que se cone
 
 ## Resumen de los archivos de configuración.
 
-Este archivo tiene la instalación de aquellas partes que se tendrán en nuestra máquina: Mongo, Node.JS, Apache2, Python2.7 y NPM
+Este [archivo](https://github.com/jdanielsv/CC-UGR/blob/master/provision/provision.yml) tiene la instalación de aquellas partes que se tendrán en nuestra máquina: Mongo, Node.JS, Apache2, Python2.7 y NPM
 ![primeraConfiguracion](Imagenes/1.png)

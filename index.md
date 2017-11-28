@@ -17,5 +17,7 @@ Se han utilizado la versión 16.04 t2.micro de Ubuntu. Además, para la instalac
 ## Ansible
 Se ha elegido Ansible por su sencillez de uso: se basa en una arquitectura cliente/servidor en la que, mediante playbooks ( o tareas ) se va provisionando el sistema. Para acceder a la información completa entrar [aquí](https://github.com/jdanielsv/CC-UGR/tree/master/provision)
 
+## Automatización
+Para la automatización de la creación de las máquinas virtuales se ha realizado a través de un script [acopio](https://github.com/jdanielsv/CC-UGR/blob/master/acopio.sh) que, junto con el uso de Ansible y Azure-cli, nos facilita la creación y orquestación de la máquina de forma automática.
 ## Licencia
 Proyecto bajo la licencia de Apache License

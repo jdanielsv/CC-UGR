@@ -1,0 +1,50 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.define "service" do |service|
+    service.vm.box = 'azure'
+    service.ssh.private_key_path = '~/.ssh/id_rsa'
+
+    service.vm.provider :azure do |azure, override|
+      azure.location="westeurope"
+
+      azure.resource_group_name="CC-MASTER"
+      azure.vm_name="servicio"
+
+      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
+
+      azure.tenant_id = ENV['AZURE_TENANT_ID']
+      azure.client_id = ENV['AZURE_CLIENT_ID']
+      azure.client_secret = ENV['AZURE_CLIENT_SECRET']
+      azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+    end
+
+    service.vm.provision "ansible" do |ansible|
+      ansible.playbook = "provision.yml"
+    end
+
+  end
+
+  config.vm.define "database" do |database|
+    database.vm.box = 'azure'
+    database.ssh.private_key_path = '~/.ssh/id_rsa'
+
+    database.vm.provider :azure do |azure, override|
+      azure.location="westeurope"
+
+      azure.resource_group_name="CC-MASTER"
+      azure.vm_name="db"
+
+      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
+
+      azure.tenant_id = ENV['AZURE_TENANT_ID']
+      azure.client_id = ENV['AZURE_CLIENT_ID']
+      azure.client_secret = ENV['AZURE_CLIENT_SECRET']
+      azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+    end
+
+    database.vm.provision "ansible" do |ansible|
+      ansible.playbook = "provision1.yml"
+    end
+
+  end
+end

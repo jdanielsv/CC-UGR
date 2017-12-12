@@ -19,5 +19,8 @@ Se ha elegido Ansible por su sencillez de uso: se basa en una arquitectura clien
 
 ## Automatización
 Para la automatización de la creación de las máquinas virtuales se ha realizado a través de un script [acopio](https://github.com/jdanielsv/CC-UGR/blob/master/acopio.sh) que, junto con el uso de Ansible y Azure-cli, nos facilita la creación y orquestación de la máquina de forma automática.
+
+## Orquestación
+Para la orquestación de las máquinas virtuales se ha realizado a través de Vagrant  que, junto con el uso de Ansible y Azure, orquestamos de forma automática las máquinas Para mas información ir [aqui]("https://github.com/jdanielsv/CC-UGR/tree/master/orquestacion").
 ## Licencia
 Proyecto bajo la licencia de Apache License

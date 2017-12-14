@@ -45,7 +45,7 @@ Para la orquestación de máquinas se ha utilizado Vagrant y en concreto las im�
 
 Despliegue Vagrant:52.174.194.7
 
-Para mas información entrar [aquí]("orquestacion/README.md")
+Para mas información entrar [aquí](orquestacion/README.md)
 
 ## Licencia
 Proyecto bajo la licencia de Apache License

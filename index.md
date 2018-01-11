@@ -22,5 +22,10 @@ Para la automatización de la creación de las máquinas virtuales se ha realiza
 
 ## Orquestación
 Para la orquestación de las máquinas virtuales se ha realizado a través de Vagrant  que, junto con el uso de Ansible y Azure, orquestamos de forma automática las máquinas Para mas información ir [aqui]("https://github.com/jdanielsv/CC-UGR/tree/master/orquestacion").
+
+## Contenedores
+Se ha utilizado Docker para la creación de contenedores a través de un DockerFile y nuestro servicio para posteriormente desplegarlos con Azure. 
+ Para mas información ir [aqui]("https://github.com/jdanielsv/CC-UGR/tree/master/orquestacion").
+
 ## Licencia
 Proyecto bajo la licencia de Apache License

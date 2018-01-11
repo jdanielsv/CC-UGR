@@ -1,0 +1,23 @@
+{
+  "name": "cc-ugr",
+  "version": "1.0.0",
+  "description": "Apliación de prueba para CC",
+  "main": "testn.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node testn.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdanielsv/CC-UGR.git"
+  },
+  "author": "Jose Daniel Salas Villaldea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdanielsv/CC-UGR/issues"
+  },
+  "homepage": "https://github.com/jdanielsv/CC-UGR#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}

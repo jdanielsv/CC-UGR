@@ -1,0 +1,17 @@
+{
+  "name": "UserService",
+  "version": "0.0.1",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jose Daniel Salas Villaldea",
+  "license": "ISC",
+  "dependencies": {
+    "baucis": "^1.6.7",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.7",
+    "request": "^2.81.0"
+  }
+}

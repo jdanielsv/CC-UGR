@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Control Panel</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Control Panel</a>
+            </div>
+            <!-- /.navbar-header -->
+
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
+                        </li>
+                        <li>
+                            <a href="usuarios.html"><i class="fa fa-table fa-fw"></i> Usuarios</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Usuarios</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <button type="button" id="crear" class="btn btn-primary">Crear usuario</button>
+            <div id="hiddenForm" >
+            <div class="form-group">
+              <label>Nombre</label>
+              <input id="nombre" class="form-control" placeholder="Nombre">
+
+              <label>Apellidos</label>
+              <input id="apellidos" class="form-control" placeholder="Apellidos">
+
+              <label>Email</label>
+              <input id="email" class="form-control" placeholder="Email">
+
+              <label>Dirección</label>
+              <input id="direccion" class="form-control" placeholder="Dirección">
+
+              <button type="button" id="add" class="btn btn-success">Añadir usuario</button>
+            </div>
+
+            </div>
+            <div id="productos">
+
+			</div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>Nombre</label>
+              <input id="nombreA" class="form-control" placeholder="Nombre">
+
+              <label>Apellidos</label>
+              <input id="apellidosA" class="form-control" placeholder="Apellidos">
+
+              <label>Email</label>
+              <input id="emailA" class="form-control" placeholder="Email">
+
+              <label>Dirección</label>
+              <input id="direccionA" class="form-control" placeholder="Dirección">
+
+              <input id="_id" class="form-control" type="hidden">
+
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="updateUser" class="btn btn-success">Actualizar usuario</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+
+      $( "#crear" ).click(function() {
+      	  $( "#hiddenForm" ).toggle( "slow", function() {
+      	  });
+      });
+
+
+      $( "#hiddenForm" ).toggle( "slow", function() {
+      });
+
+
+
+
+      $("#add").click(function(){
+  		  var nombre = $("#nombre").val();
+  		var apellidos = $("#apellidos").val();
+  			var email = $("#email").val();
+        var direccion = $("#direccion").val();
+
+  	  item = {
+  			   nombre: nombre,
+  			   apellidos: apellidos,
+  			   email: email,
+           direccion: direccion
+  			   }
+  		    $.ajax({
+  		    	  url: "http://localhost:3000/api/user",
+  		    	  type: "PUT",
+  		    	  contentType: "application/json",
+  		          dataType: 'json',
+  		    	  data: JSON.stringify(item),
+  		    	  success: function( result ) {
+  		    	    alert("INTRODUCIDO CORRECTAMENTE");
+  		    	    window.location.reload();
+  		    	  },
+  		    	  error: function( result ){
+  		    		  alert("FALLO AL CREAR UN USUARIO ");
+  		    	  }
+  		    	});
+	    	});
+
+	    $.ajax({
+	    	  url: "http://localhost:3000/api/user/",
+	    	  type: "GET",
+	          dataType: 'json',
+	    	  success: function( result ) {
+	    	    console.log(result);
+	    	    var productos = result["productos"];
+	    	    //var p = $.parseJSON(productos["productos"]);
+	    	    var table ="<table class='table'>"+
+			  	"<thead>"+
+			    "<tr>"+
+			      "<th scope='col'>#</th>"+
+			      "<th scope='col'>Nombre</th>"+
+			      "<th scope='col'>Apellidos</th>"+
+			      "<th scope='col'>Email</th>"+
+			      "<th scope='col'>Dirección</th>"+
+            "<th scope='col'>Acciones</th>"+
+			    "</tr>"+
+			  "</thead>"+
+			  "<tbody>";
+			  for(var i in result.data) {
+				  console.log(result.data[i]);
+				  table+="<tr>"+
+			      "<th scope='row'>"+result.data[i]._id+"</th>"+
+			      "<td>"+result.data[i].nombre+"</td>"+
+			      "<td>"+result.data[i].apellidos+"</td>"+
+			      "<td>"+result.data[i].email+"</td>"+
+			      "<td>"+result.data[i].direccion+"</td>"+
+			      "<td><button type='button' onclick='eliminar(\""+result.data[i]._id+"\")' class='btn btn-danger'>Eliminar usuario</button>"+
+            "<button type='button'  data-toggle='modal' data-target='#exampleModal' onclick='pintarModal(\""+result.data[i]._id+"\",\""+result.data[i].nombre+"\",\""+result.data[i].apellidos+"\",\""+result.data[i].email+"\",\""+result.data[i].direccion+"\")' class='btn btn-info'>Actualizar usuario</button>"+
+            "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal' data-whatever='@mdo'>Actualizar usuario</button>"
+            "</td>"+
+
+			    "</tr>";
+			  }
+
+
+			 table+=" </tbody>"+
+			"</table>";
+
+
+	    	    document.getElementById("productos").innerHTML =table;
+	    	  },
+	    	  error: function( result ){
+	    	  }
+	    	});
+    });
+
+    function eliminar(id)
+    {
+
+      console.log(id);
+      $.ajax({
+      	  url: "http://localhost:3000/api/user/"+id,
+      	  type: "DELETE",
+      	  success: function( result ) {
+
+      	    alert("ELIMINADO CORRECTAMENTE");
+              window.location.reload();
+      	  },
+      	  error: function( result ){
+      		  alert("ELIMINADO INCORRECTO");
+      	  }
+      	});
+    }
+
+    function pintarModal(id,nombre,apellidos,email,direccion)
+    {
+        console.log(id);
+        console.log(nombre);
+        console.log(apellidos);
+        console.log(email);
+        console.log(direccion);
+        $('#nombreA').val(nombre);
+        $('#apellidosA').val(apellidos);
+        $('#emailA').val(email);
+        $('#direccionA').val(direccion);
+        $('#_id').val(id);
+
+    }
+
+
+    $("#updateUser").click(function(){
+        var nombre = $("#nombreA").val();
+        var apellidos = $("#apellidosA").val();
+        var email = $("#emailA").val();
+        var direccion = $("#direccionA").val();
+        var id = $("#_id").val();
+
+  item = {
+           nombre: nombre,
+           apellidos: apellidos,
+           email: email,
+       direccion: direccion
+           }
+        $.ajax({
+              url: "http://localhost:3000/api/user/"+id,
+              type: "PATCH",
+              contentType: "application/json",
+              dataType: 'json',
+              data: JSON.stringify(item),
+              success: function( result ) {
+                alert("ACTUALIZADO CORRECTAMENTE");
+                window.location.reload();
+              },
+              error: function( result ){
+                  alert("FALLO AL ACTUALIZAR UN USUARIO ");
+              }
+            });
+        });
+    </script>
+
+   
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

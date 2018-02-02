@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+
+  userservice:
+    build: compose/userService
+    container_name: userservice
+    ports:
+      - "3000:3000"
+    links:
+      - mongodb
+
+  client:
+    build: compose/client
+    container_name: client
+    ports:
+      - "80:80"
+    links:
+      - userservice
+
+  mongodb:
+    image: 'mongo:latest'
+    container_name: mongodb
+    volumes:
+      - 'mongo:/data/db'
+
+volumes:
+  mongo:

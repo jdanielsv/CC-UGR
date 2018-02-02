@@ -4,6 +4,9 @@ var bodyParser = require('body-parser');
 module.exports = function (app){
     var usuario = require('../controllers/usuario.server.controller');
     var usuarioRoute = require ('./user.server.routes.js');
+    var express = require('express');
+    var router = express.Router();
+
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
@@ -28,6 +31,13 @@ module.exports = function (app){
          // Pass to next layer of middleware
          next();
      });
+
+    router.get("/",function(req,res){
+      res.status(200).send({status:'ok'});
+    });
+
+
     app.use('/api/user',usuarioRoute);
+    app.use('/status',router);
 
 }

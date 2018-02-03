@@ -162,7 +162,7 @@
            direccion: direccion
   			   }
   		    $.ajax({
-  		    	  url: "http://localhost:3000/api/user",
+  		    	  url: "http://ccdanydns.eastus.cloudapp.azure.com:3000/api/user",
   		    	  type: "PUT",
   		    	  contentType: "application/json",
   		          dataType: 'json',
@@ -178,7 +178,7 @@
 	    	});
 
 	    $.ajax({
-	    	  url: "http://localhost:3000/api/user/",
+	    	  url: "http://ccdanydns.eastus.cloudapp.azure.com:3000/api/user/",
 	    	  type: "GET",
 	          dataType: 'json',
 	    	  success: function( result ) {
@@ -230,7 +230,7 @@
 
       console.log(id);
       $.ajax({
-      	  url: "http://localhost:3000/api/user/"+id,
+      	  url: "http://ccdanydns.eastus.cloudapp.azure.com:3000/api/user/"+id,
       	  type: "DELETE",
       	  success: function( result ) {
 
@@ -273,7 +273,7 @@
        direccion: direccion
            }
         $.ajax({
-              url: "http://localhost:3000/api/user/"+id,
+              url: "http://ccdanydns.eastus.cloudapp.azure.com:3000/api/user/"+id,
               type: "PATCH",
               contentType: "application/json",
               dataType: 'json',

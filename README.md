@@ -56,7 +56,7 @@ Con Docker abstraemos y desplegamos aplicaciones encapsulando las apliaciones en
 ## Composición de contenedores con Docker-Compose
  Como vimos en el hito pasado, utilizamos Docker para encapsular los servicios pero en este hito los utilizaremos para  administrarlos y relacionarlos entre sí. Para mas información entrar [aqui](compose/README.md).
 
-* Hito6: *DIRECCIÓN*
+* Hito6: http://ccdanydns.eastus.cloudapp.azure.com:3000
 
 ## Licencia
 Proyecto bajo la licencia de Apache License

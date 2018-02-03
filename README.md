@@ -53,5 +53,10 @@ Con Docker abstraemos y desplegamos aplicaciones encapsulando las apliaciones en
 * Contenedor: https://dasavicc.azurewebsites.net
 * Dockerhub: https://hub.docker.com/r/dasavi1811/proyectocc/
 
+## Composición de contenedores con Docker-Compose
+ Como vimos en el hito pasado, utilizamos Docker para encapsular los servicios pero en este hito los utilizaremos para  administrarlos y relacionarlos entre sí. Para mas información entrar [aqui](compose/README.md).
+
+* Hito6: *DIRECCIÓN*
+
 ## Licencia
 Proyecto bajo la licencia de Apache License
